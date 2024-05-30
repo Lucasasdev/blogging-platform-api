@@ -17,7 +17,7 @@ async function getCustomers(): Promise<Customer[]> {
 async function addCustomer(customer: Customer): Promise<Customer> {
   return new Promise((resolve, reject) => {
     if (!customer.name || !customer.cpf) {
-      return reject(`Invalid Customer.`);
+      return reject(new Error(`Invalid Customer.`));
     }
 
     const newCustomer = new Customer(customer.name, customer.cpf);
