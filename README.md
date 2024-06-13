@@ -5,7 +5,7 @@
 API REST with all of the basic methods for manipulating datas in the database.
 
 # Contributing
-Do you want to contribute? Follow this [steps](https://github.com/Lucasasdev/web-api/blob/master/CONTRIBUTING.md)
+Do you want to contribute? Follow these [steps](https://github.com/Lucasasdev/web-api/blob/master/CONTRIBUTING.md)
 
 # License
 [MIT license](https://github.com/Lucasasdev/web-api/blob/master/LICENSE)
