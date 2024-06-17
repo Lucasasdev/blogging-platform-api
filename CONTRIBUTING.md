@@ -1,6 +1,6 @@
 ### Pre-requirements
 - [Node LTS](https://nodejs.org/en)
-- [NPM 10.5 >=]()
+- [NPM 10.5 >=](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 1. Clone the project
 ```
