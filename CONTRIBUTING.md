@@ -1,9 +1,18 @@
+# Contribuiting
+
 ### Pre-requirements
 - [Node LTS](https://nodejs.org/en)
 - [NPM 10.5 >=](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-1. Clone the project: ```https://github.com/Lucasasdev/web-api.git```
+### Get started forking the project
 
-2. Install the dependences as following: ```npm install```
+1. Install the dependencies ```npm install```
 
-3. Run de project: ```npm run dev```
+1. Create a new branch: ```git checkout -d branch-name```
+
+3. Add to stage area: ```git add . or git add file-name```
+
+4. Commit the changes: ```git commit -m "Feature-description"```
+- As for this step will must be following the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/#specification)
+
+5. Throw it to remote repository: ``` git push --up-stream origin branch-name```
