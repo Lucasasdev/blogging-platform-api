@@ -9,16 +9,21 @@
     "dev:win": "nodemon --watch ./src/**/*.ts --exec ts-node ./src/server.ts",
     "dev:linux": "nodemon --watch './src/**/*.ts' --exec ts-node './src/server.ts'"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^5.15.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
     "helmet": "^7.1.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "prisma": "^5.15.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
