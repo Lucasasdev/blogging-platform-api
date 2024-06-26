@@ -29,7 +29,7 @@ async function addCustomer(customer: Customer): Promise<Customer> {
 
 async function updateCustomer(
   id: number,
-  newCustomer: Customer
+  newCustomer: Customer,
 ): Promise<Customer | undefined> {
   return new Promise((resolve, reject) => {
     const index = customers.findIndex((c) => c.id === id);

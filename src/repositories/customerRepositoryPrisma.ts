@@ -1,12 +1,7 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient, Customer } from "@prisma/client";
 const prismaClient = new PrismaClient();
 
-interface Body {
-  name: string;
-  cpf: string;
-}
-
-export const getCustomer = async (id: number) => {
+export const getCustomer = async (id: number): Promise<Customer | null> => {
   const customer = await prismaClient.customer.findUnique({
     where: {
       id: id,
@@ -16,14 +11,16 @@ export const getCustomer = async (id: number) => {
   return customer;
 };
 
-export const getCustomers = async () => {
+export const getCustomers = async (): Promise<Customer[]> => {
   const customers = await prismaClient.customer.findMany({});
 
   return customers;
 };
 
-export const createCustomer = async (body: Body) => {
-  const { name, cpf } = body;
+export const createCustomer = async (
+  name: string,
+  cpf: string,
+): Promise<Customer> => {
   const customer = await prismaClient.customer.create({
     data: {
       name: name,
@@ -34,8 +31,12 @@ export const createCustomer = async (body: Body) => {
   return customer;
 };
 
-export const updateCustomer = async (id: number, name: string, cpf: string) => {
-  const customer = await prismaClient.customer.update({
+export const updateCustomer = async (
+  id: number,
+  name: string,
+  cpf: string,
+): Promise<Customer | null> => {
+  const result = await prismaClient.customer.update({
     where: {
       id: id,
     },
@@ -45,10 +46,10 @@ export const updateCustomer = async (id: number, name: string, cpf: string) => {
     },
   });
 
-  return customer;
+  return result;
 };
 
-export const deleteCustomer = async (id: number) => {
+export const deleteCustomer = async (id: number): Promise<Customer | null> => {
   const customer = await prismaClient.customer.delete({
     where: {
       id: id,

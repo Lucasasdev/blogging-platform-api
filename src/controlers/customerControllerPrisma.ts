@@ -1,18 +1,12 @@
 import { Request, Response, NextFunction } from "express";
 import * as customerRepositoryPrisma from "../repositories/customerRepositoryPrisma";
-import { Prisma } from "@prisma/client";
-
-interface Body {
-  name: string;
-  cpf: string;
-}
 
 export const getCustomer = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
-  const id = req.params.id;
+  const { id } = req.params;
   const customer = await customerRepositoryPrisma.getCustomer(parseInt(id));
 
   if (customer) {
@@ -41,13 +35,48 @@ export const createCustomer = async (
   res: Response,
   next: NextFunction,
 ) => {
-  const body = req.body as Body;
-
-  const result = await customerRepositoryPrisma.createCustomer(body);
+  const { name, cpf } = req.body;
+  const result = await customerRepositoryPrisma.createCustomer(name, cpf);
 
   if (result) {
-    res.sendStatus(201).send(result);
+    res.status(201).json(result);
   } else {
     res.sendStatus(400);
+  }
+};
+
+export const patchCustomer = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const id = req.params.id;
+  const { name, cpf } = req.body;
+
+  const result = await customerRepositoryPrisma.updateCustomer(
+    parseInt(id),
+    name,
+    cpf,
+  );
+
+  if (result) {
+    res.json(result);
+  } else {
+    res.sendStatus(404);
+  }
+};
+
+export const deleteCustomer = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const { id } = req.params;
+  const success = await customerRepositoryPrisma.deleteCustomer(parseInt(id));
+
+  if (success) {
+    res.sendStatus(204);
+  } else {
+    res.sendStatus(404);
   }
 };
