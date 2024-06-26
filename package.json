@@ -1,8 +1,9 @@
 {
   "name": "web-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "WEB API REST",
+  "main": "/build/server.js",
+  "type": "module",
   "scripts": {
     "start": "node ./build/server.js",
     "build": "tsc",
