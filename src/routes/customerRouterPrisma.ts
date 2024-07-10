@@ -1,9 +1,9 @@
 import express from "express";
-import * as customerControlerPrisma from "../controlers/customerControllerPrisma";
+import * as customerControlerPrisma from "../controllers/userController";
 
 const router = express.Router();
 
-router.get("/:id(\\d+)", customerControlerPrisma.getCustomer);
+router.get("/:id", customerControlerPrisma.getCustomer);
 router.get("/", customerControlerPrisma.getCustomers);
 router.post("/", customerControlerPrisma.createCustomer);
 router.patch("/:id", customerControlerPrisma.patchCustomer);

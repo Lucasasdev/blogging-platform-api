@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import * as customerRepositoryPrisma from "../repositories/customerRepositoryPrisma";
+import * as customerRepositoryPrisma from "../repositories/userRepository";
 
 export const getCustomer = async (
   req: Request,
