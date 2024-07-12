@@ -6,5 +6,5 @@ const port = parseInt(`${process.env.PORT}`);
 import app from "./app";
 
 app.listen(port, () => {
-  console.log(`Server running at ${port}`);
+  console.log(`Server running on http://localhost${port}`);
 });
