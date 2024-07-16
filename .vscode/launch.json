@@ -8,7 +8,7 @@
       "type": "node-terminal",
       "name": "Run dev",
       "request": "launch",
-      "command": "npm run dev:linux"
+      "command": "npm run dev"
     }
   ]
 }
