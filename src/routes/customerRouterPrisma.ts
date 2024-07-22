@@ -1,12 +1,12 @@
 import express from "express";
-import * as customerControlerPrisma from "../controllers/userController";
+import * as userController from "../controllers/userController";
 
 const router = express.Router();
 
-router.get("/:id", customerControlerPrisma.getCustomer);
-router.get("/", customerControlerPrisma.getCustomers);
-router.post("/", customerControlerPrisma.createCustomer);
-router.patch("/:id", customerControlerPrisma.patchCustomer);
-router.delete("/:id", customerControlerPrisma.deleteCustomer);
+router.get("/:id", userController.getCustomer);
+router.get("/", userController.getCustomers);
+router.post("/", userController.createCustomer);
+router.patch("/:id", userController.patchCustomer);
+router.delete("/:id", userController.deleteCustomer);
 
 export default router;
