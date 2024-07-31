@@ -1,13 +1,53 @@
 # Blogging platform API
 
-![Static Badge](https://img.shields.io/badge/License-MIT-green)
-
 An API REST built to support a blogging site.
 
-# Contributing
+## Requirements
+- Node.js
+- npm
+- Postgres
 
-Would you like to contribute to this project? [Follow the guidelines](https://github.com/Lucasasdev/web-api/blob/master/CONTRIBUTING.md)
+## Instalation
 
-# License
+Follow the steps bellow to install and run the project:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/user-name/project-name.git
+
+```
+
+2. Access the project directory:
+
+```bash
+cd project-name
+
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+
+```
+
+4. Run the application:
+
+```bash
+npm start
+```
+
+## Technologies
+
+- Node.js
+- TypeScript
+- Express.js
+- Postgres
+- Docker
+- Prisma
+- Postman
+
+## License
 
 [MIT license](https://github.com/Lucasasdev/web-api/blob/master/LICENSE)
