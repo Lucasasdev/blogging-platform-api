@@ -48,6 +48,10 @@ npm start
 - Prisma
 - Postman
 
+## Software design
+
+Following the [MVC](https://developer.mozilla.org/en-US/docs/Glossary/MVC) software architecture.
+
 ## License
 
 [MIT license](https://github.com/Lucasasdev/web-api/blob/master/LICENSE)
