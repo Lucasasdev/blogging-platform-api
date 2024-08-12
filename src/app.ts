@@ -1,9 +1,9 @@
 import "express-async-errors";
-import express, { Request, Response, NextFunction } from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import userRoutes from "./routes/customerRouterPrisma";
+import userRouter from "./routes/userRouter";
 
 const app = express();
 
@@ -15,13 +15,13 @@ app.use(helmet());
 
 app.use(express.json());
 
-app.use("/user/", userRoutes);
+app.use("/user/", userRouter);
 
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req: Request, res: Response) => {
   res.send("Hello, Node!");
 });
 
-app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((error: Error, req: Request, res: Response) => {
   res.status(500).send(error.message);
 });
 

@@ -10,7 +10,6 @@ export default [
     languageOptions: {
       globals: {
         ...globals.node,
-        NextFunction: "readOnly",
       },
     },
   },

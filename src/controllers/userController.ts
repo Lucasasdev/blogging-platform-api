@@ -1,42 +1,30 @@
-import { Request, Response, NextFunction } from "express";
-import * as customerRepositoryPrisma from "../repositories/userRepository";
+import { Request, Response } from "express";
+import * as userRepository from "../repositories/userRepository";
 
-export const getCustomer = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const getUser = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const customer = await customerRepositoryPrisma.getCustomer(parseInt(id));
+  const user = await userRepository.getUser(parseInt(id));
 
-  if (customer) {
-    res.send(customer);
+  if (user) {
+    res.send(user).sendStatus(200);
   } else {
     res.sendStatus(404);
   }
 };
 
-export const getCustomers = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  const customers = await customerRepositoryPrisma.getCustomers();
+export const getUsers = async (req: Request, res: Response) => {
+  const users = await userRepository.getUsers();
 
-  if (customers) {
-    res.send(customers);
+  if (users) {
+    res.send(users).sendStatus(200);
   } else {
     res.sendStatus(404);
   }
 };
 
-export const createCustomer = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  const { name, cpf } = req.body;
-  const result = await customerRepositoryPrisma.createCustomer(name, cpf);
+export const createUser = async (req: Request, res: Response) => {
+  const input = req.body;
+  const result = await userRepository.createUser(input);
 
   if (result) {
     res.status(201).json(result);
@@ -45,19 +33,11 @@ export const createCustomer = async (
   }
 };
 
-export const patchCustomer = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const patchUser = async (req: Request, res: Response) => {
   const id = req.params.id;
   const { name, cpf } = req.body;
 
-  const result = await customerRepositoryPrisma.updateCustomer(
-    parseInt(id),
-    name,
-    cpf,
-  );
+  const result = await userRepository.updateUser(parseInt(id), name, cpf);
 
   if (result) {
     res.json(result);
@@ -66,13 +46,9 @@ export const patchCustomer = async (
   }
 };
 
-export const deleteCustomer = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const deleteUser = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const success = await customerRepositoryPrisma.deleteCustomer(parseInt(id));
+  const success = await userRepository.deleteUser(parseInt(id));
 
   if (success) {
     res.sendStatus(204);
