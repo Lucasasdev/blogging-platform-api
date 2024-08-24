@@ -22,7 +22,7 @@ app.use((req: Request, res: Response) => {
 });
 
 app.use((error: Error, req: Request, res: Response) => {
-  res.status(500).send(error.message);
+  res.sendStatus(500).send(error.message);
 });
 
 export default app;

@@ -35,12 +35,11 @@ export const createUser = async (req: Request, res: Response) => {
 
 export const patchUser = async (req: Request, res: Response) => {
   const id = req.params.id;
-  const { name, cpf } = req.body;
-
-  const result = await userRepository.updateUser(parseInt(id), name, cpf);
+  const { posts } = req.body;
+  const result = await userRepository.updateUser(parseInt(id), posts);
 
   if (result) {
-    res.json(result);
+    res.sendStatus(200).json(result);
   } else {
     res.sendStatus(404);
   }
